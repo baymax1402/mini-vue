@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{person.name}} -- {{person.age}}</h2>
+      <h3>{{person.fav}}</h3>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+      <h3>{{msg}}</h3>
+      <div v-text="msg"></div>
+      <div v-text="person.name"></div>
+      <div v-html="htmlStr"></div>
+      <input type="text" v-model="msg" />
+      <button v-on:click="handlerClick">button</button>
+      <button @click="handlerClick">button</button>
+    </div>
+    <script type="text/javascript" src="./Observer.js"></script>
+    <script type="text/javascript" src="./MVue.js"></script>
+    <script type="text/javascript">
+      let vm = new MVue({
+        el: '#app',
+        data: {
+          person:{
+            name:'幻城之雪',
+            age: 18,
+            fav: '姑娘'
+          },
+          msg: '学习MVVM实现原理',
+          htmlStr: '<p>哈哈哈</p>'
+        },
+        methods: {
+          handlerClick() {
+            console.log(this);
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
